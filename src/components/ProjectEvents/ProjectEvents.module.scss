@@ -1,0 +1,435 @@
+$green-dark:   #005c40;
+$green-mid:    #006b42;
+$green-light:  #65b32e;
+$ink:          #10261f;
+$ink-mid:      #26463a;
+$ink-soft:     #4d685c;
+$ink-muted:    #6a7f73;
+$border:       #d7e0d8;
+$border-light: #e4e9e4;
+$surface:      #ffffff;
+$radius-pill:  999px;
+$shadow-card:  0 10px 28px rgba(16, 38, 31, 0.04);
+$shadow-lift:  0 16px 34px rgba(16, 38, 31, 0.08);
+
+* { box-sizing: border-box; }
+
+.page {
+  min-height: 100vh;
+  background: #f4f6f4;
+  color: $ink;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+.topShell {
+  width: min(1480px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+/* ── Back link ───────────────────────────────────────────── */
+.backRow {
+  margin-bottom: 24px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 10px 18px 10px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(214, 223, 216, 0.95);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 28px rgba(16, 38, 31, 0.06);
+  color: $ink;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.backLink:hover {
+  transform: translateY(-1px);
+  border-color: #cad7ce;
+  box-shadow: 0 16px 32px rgba(16, 38, 31, 0.08);
+}
+
+.backIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-pill;
+  background: linear-gradient(180deg, #eef5f0 0%, #e4efe8 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $green-mid;
+}
+
+.backTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.backOverline {
+  color: #72877c;
+  font-size: 11px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.backLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.35;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0f2318 0%, #1a3d2e 60%, #005c40 100%);
+  border-radius: 24px;
+  padding: 48px 48px 44px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 28px,
+    rgba(255,255,255,0.025) 28px,
+    rgba(255,255,255,0.025) 29px
+  );
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $green-light;
+}
+
+.title {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.08;
+}
+
+.intro {
+  margin: 0 0 28px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+}
+
+.heroCounts {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.heroCount {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.heroCountValue {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.heroCountLabel {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.heroCountDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── Events list ─────────────────────────────────────────── */
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eventBlock {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: box-shadow 0.18s ease;
+}
+
+.eventBlock:hover {
+  box-shadow: $shadow-lift;
+}
+
+.eventToggle {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 22px 24px;
+  border: none;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.14s ease;
+}
+
+.eventToggle:hover {
+  background: #f7fbf7;
+}
+
+.eventToggleLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.eventAccent {
+  width: 4px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: $green-mid;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.eventToggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.eventEyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $ink-muted;
+}
+
+.eventTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.2;
+}
+
+.eventDesc {
+  margin: 0;
+  font-size: 13px;
+  color: $ink-soft;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.toggleChevron {
+  display: block;
+  flex: 0 0 auto;
+  color: $ink-muted;
+  transition: transform 0.22s ease;
+}
+
+.toggleChevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ── Event content area ──────────────────────────────────── */
+.eventContent {
+  border-top: 1px solid $border-light;
+  padding: 24px;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Placeholder ─────────────────────────────────────────── */
+.placeholderBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 140px;
+  border: 2px dashed $border;
+  border-radius: 16px;
+  background: #f7faf7;
+}
+
+.placeholderIcon {
+  color: $ink-muted;
+  opacity: 0.5;
+}
+
+.placeholderText {
+  margin: 0;
+  font-size: 13px;
+  color: $ink-muted;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ── Webinar player (verbatim from ProgrammeOverview) ──── */
+.webinarsLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.webinarsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.webinarsInfoEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $ink-muted;
+}
+
+.webinarsMeta {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: $ink-soft;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.webinarsPlayer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.webinarsTabRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.webinarTab {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 14px;
+  border: 1px solid $border;
+  border-radius: 12px;
+  background: $surface;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.webinarTab:hover {
+  background: #f0f5f0;
+  border-color: #b0c8b2;
+}
+
+.webinarTabActive {
+  background: $green-mid;
+  border-color: $green-mid;
+  color: #ffffff;
+}
+
+.webinarTabLabel {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.webinarTabDate {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.webinarsFrame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f1a14;
+}
+
+.webinarsIframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .webinarsLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .topShell {
+    width: min(100% - 24px, 1480px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 32px 24px 28px;
+  }
+
+  .eventToggle {
+    padding: 18px 16px;
+  }
+
+  .eventContent {
+    padding: 16px;
+  }
+}

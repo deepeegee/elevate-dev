@@ -1,0 +1,324 @@
+.heroCarousel {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d7e0d8;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(16, 38, 31, 0.04);
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroMedia {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #0d2419;
+  height: 100%;
+  /* Lock height — prevents portrait/landscape images from resizing the card */
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  /* Bias toward top so portrait shots show faces, not chests */
+  object-position: center top;
+}
+
+.topOverlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+}
+
+.bottomOverlay {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.indicator {
+  position: relative;
+  width: 28px;
+  height: 4px;
+  border: none;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.indicatorActive {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.indicatorMover {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #ffffff;
+  transform-origin: left center;
+  animation-name: indicatorTimerFill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes indicatorTimerFill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.fullscreenButton {
+  pointer-events: auto;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(16, 38, 31, 0.45);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.fullscreenButton:hover {
+  background: rgba(16, 38, 31, 0.7);
+  transform: scale(1.04);
+}
+
+.overlayText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  color: #ffffff;
+  padding: 48px 20px 48px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.overlayText h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.overlayText p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(8, 18, 14, 0.74);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modalPanel {
+  width: min(1180px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+  padding: 22px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.modalTitleWrap h2 {
+  margin: 0;
+  color: #10261f;
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.modalTitleWrap p {
+  margin: 8px 0 0;
+  color: #536b60;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.modalClose {
+  border: none;
+  background: #f3f6f4;
+  color: #29463b;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modalHero {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #eef2ef;
+  min-height: 520px;
+}
+
+.modalHeroImage {
+  width: 100%;
+  height: 520px;
+  display: block;
+  object-fit: cover;
+}
+
+.modalNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(16, 38, 31, 0.68);
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modalNavLeft {
+  left: 16px;
+}
+
+.modalNavRight {
+  right: 16px;
+}
+
+.modalThumbGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.thumbButton {
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  background: #f4f7f5;
+  cursor: pointer;
+}
+
+.thumbButton img {
+  width: 100%;
+  height: 120px;
+  display: block;
+  object-fit: cover;
+}
+
+.thumbButtonActive {
+  border-color: #005c40;
+}
+
+@media (max-width: 920px) {
+  .modalHero {
+    min-height: 360px;
+  }
+
+  .modalHeroImage {
+    height: 360px;
+  }
+
+  .modalThumbGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .topOverlay {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .bottomOverlay {
+    bottom: 12px;
+  }
+
+  .indicator {
+    width: 24px;
+  }
+
+  .overlayText {
+    bottom: 34px;
+  }
+
+  .overlayText h3 {
+    font-size: 20px;
+  }
+
+  .overlayText p {
+    font-size: 13px;
+  }
+
+  .modalPanel {
+    padding: 16px;
+  }
+
+  .modalHero {
+    min-height: 260px;
+  }
+
+  .modalHeroImage {
+    height: 260px;
+  }
+}
