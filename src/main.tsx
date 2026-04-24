@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <HashRouter>
         <Routes>
           <Route path="/" element={<S4 />} />
-          <Route path="/overview" element={<ProgrammeOverview />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/change-network" element={<ChangeNetwork />} />
+          <Route path="/overview" element={<ProgrammeOverview onBack={() => { }} />} />
+          <Route path="/faqs" element={<FAQs onBack={() => { }} onNavigate={() => { }} />} />
+          <Route path="/change-network" element={<ChangeNetwork onBack={() => { }} />} />
         </Routes>
       </HashRouter>
     </ErrorToastProvider>
