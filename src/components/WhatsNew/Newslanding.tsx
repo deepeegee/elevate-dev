@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './NewsLanding.module.scss';
+import styles from './Newslanding.module.scss';
 import { useProjectNews, type INewsItem, type NewsCategory } from '..//../hooks/useProjectNews';
 
 interface INewsLandingProps {
