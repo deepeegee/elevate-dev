@@ -5,7 +5,7 @@ import {
   useChangeNetworkHeadshots,
   normalizeNameSignature,
 } from "..//../hooks/useChangeNetworkHeadshots";
-import { useSiteMediaCarousel } from "..//../hooks/Usesitemediacarousel";
+import { useSiteMediaCarousel } from "..//../hooks/useSitemediaCarousel";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

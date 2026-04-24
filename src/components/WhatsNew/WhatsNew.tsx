@@ -38,7 +38,7 @@ const NewsCard: React.FC<{ item: INewsItem; onClick: () => void }> = ({ item, on
       )}
     </div>
     <div className={styles.newsCardBody}>
-      <span className={styles.newsCardCategory}>{item.category}</span>
+      {/* <span className={styles.newsCardCategory}>{item.category}</span> */}
       <h3 className={styles.newsCardTitle}>{item.title}</h3>
       <p className={styles.newsCardExcerpt}>
         {item.body.replace(/<[^>]+>/g, '').slice(0, 120)}

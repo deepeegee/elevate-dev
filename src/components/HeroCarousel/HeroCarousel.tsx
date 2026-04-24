@@ -199,6 +199,22 @@ const HeroCarousel: React.FC<IHeroCarouselProps> = ({
               </button>
             </div>
 
+            {(activeItem.title || activeItem.subtitle) && (
+              <div className={styles.modalImageInfo}>
+                <div className={styles.modalImageInfoInner}>
+                  <div className={styles.modalImageCounter}>
+                    {activeIndex + 1} / {items.length}
+                  </div>
+                  {activeItem.title && (
+                    <h3 className={styles.modalImageTitle}>{activeItem.title}</h3>
+                  )}
+                  {activeItem.subtitle && (
+                    <p className={styles.modalImageSubtitle}>{activeItem.subtitle}</p>
+                  )}
+                </div>
+              </div>
+            )}
+
             <div className={styles.modalThumbGrid}>
               {items.map((item, index) => (
                 <button
@@ -211,6 +227,9 @@ const HeroCarousel: React.FC<IHeroCarouselProps> = ({
                   aria-label={`Open ${item.alt}`}
                 >
                   <img src={item.image} alt={item.alt} />
+                  {item.title && (
+                    <span className={styles.thumbLabel}>{item.title}</span>
+                  )}
                 </button>
               ))}
             </div>

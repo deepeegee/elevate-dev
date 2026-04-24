@@ -322,3 +322,71 @@
     height: 260px;
   }
 }
+/* ── Modal image info bar ──────────────────────────────────── */
+.modalImageInfo {
+  background: #f7faf7;
+  border-top: 1px solid #e4ece4;
+  border-bottom: 1px solid #e4ece4;
+  padding: 14px 24px;
+}
+
+.modalImageInfoInner {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.modalImageCounter {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a9b91;
+  flex: 0 0 auto;
+}
+
+.modalImageTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #10261f;
+  line-height: 1.2;
+}
+
+.modalImageSubtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #4d685c;
+  line-height: 1.5;
+}
+
+/* ── Thumbnail label on hover ─────────────────────────────── */
+.thumbButton {
+  position: relative;
+}
+
+.thumbLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 8px 7px;
+  background: rgba(10, 25, 18, 0.72);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumbButton:hover .thumbLabel,
+.thumbButtonActive .thumbLabel {
+  opacity: 1;
+}
