@@ -147,6 +147,31 @@
   line-height: 1.5;
 }
 
+.overlayEventMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.overlayEventName {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.overlayEventDate {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .modalBackdrop {
   position: fixed;
   inset: 0;
@@ -359,6 +384,31 @@
   font-size: 13px;
   color: #4d685c;
   line-height: 1.5;
+}
+
+.modalEventMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.modalEventName {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #005c40;
+  background: rgba(0, 92, 64, 0.08);
+  border: 1px solid rgba(0, 92, 64, 0.15);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.modalEventDate {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8a9b91;
 }
 
 /* ── Thumbnail label on hover ─────────────────────────────── */

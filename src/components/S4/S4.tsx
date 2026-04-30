@@ -6,7 +6,7 @@ import progover from "../../assets/progover2.png";
 import faqs from "../../assets/freq2.png";
 import changenet from "../../assets/change.png";
 
-import { useSiteMediaCarousel } from "..//../hooks/useSitemediaCarousel";
+import { useSiteMediaCarousel } from "../../hooks/useSitemediaCarousel";
 import HeroCarousel from "../HeroCarousel/HeroCarousel";
 import { useErrorToast } from "../common/ErrorToast/ErrorToastProvider";
 import { useSharePointAccessCheck } from "..//..//hooks/useSharePointGateCheck";

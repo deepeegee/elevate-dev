@@ -5,7 +5,8 @@ import {
   useChangeNetworkHeadshots,
   normalizeNameSignature,
 } from "..//../hooks/useChangeNetworkHeadshots";
-import { useSiteMediaCarousel } from "..//../hooks/useSitemediaCarousel";
+import { useSiteMediaCarousel } from "../../hooks/useSitemediaCarousel";
+//import { useSiteMediaCarousel } from "..//../hooks/useChangeNetworkHeadshots";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -27,76 +28,76 @@ interface IChangeNetworkProps {
 
 
 const superUsers: IContact[] = [
-  { name: "Godwin Abii-Ndoh", role: "Super User", workstream: "Finance", email: "GAbii-Ndoh@seplatenergy.com" },
-  { name: "Collins Ezeocha", role: "Super User", workstream: "Finance", email: "CEzeocha@seplatenergy.com" },
-  { name: "Adedeji Ajakaye", role: "Super User", workstream: "Finance", email: "AAjakaye@seplatenergy.com" },
-  { name: "Franklin Obika", role: "Super User", workstream: "Finance", email: "fobika@seplatenergy.com" },
-  { name: "Titilayo Sonoiki", role: "Super User", workstream: "Finance", email: "TSonoiki@seplatenergy.com" },
-  { name: "Israel Ekiko", role: "Super User", workstream: "GRC", email: "IEkiko@seplatenergy.com" },
-  { name: "Osaretin Uwumarogie", role: "Super User", workstream: "PM", email: "3P-OUwumarogie@seplatenergy.com" },
-  { name: "Ulysses Akporoba", role: "Super User", workstream: "PM", email: "3P-UAkporoba@seplatenergy.com" },
-  { name: "Eseoghene Abeke", role: "Super User", workstream: "PM", email: "3P-EAbeke@seplatenergy.com" },
-  { name: "Emmanuel Ogri", role: "Super User", workstream: "PM", email: "3P-EOgri@seplatenergy.com" },
-  { name: "Jonathan Gharoro", role: "Super User", workstream: "PM", email: "JGharoro@seplatenergy.com" },
-  { name: "Ademola Oluwasanmi", role: "Super User", workstream: "PM", email: "AOluwasanmi@seplatenergy.com" },
-  { name: "Sammy Otu", role: "Super User", workstream: "PM", email: "SOtu@seplatenergy.com" },
-  { name: "Chiossa Osai", role: "Super User", workstream: "PM", email: "COssai@seplatenergy.com" },
-  { name: "Thomas Mokwenyei", role: "Super User", workstream: "PM", email: "TMokwenyei@seplatenergy.com" },
-  { name: "Gideon Orusa", role: "Super User", workstream: "PM", email: "GOrusa@seplatenergy.com" },
-  { name: "Samuel Akpan", role: "Super User", workstream: "PM", email: "Samuel.Akpan@seplatenergy.com" },
-  { name: "Uwem Ukpe", role: "Super User", workstream: "PM", email: "UUkpe@seplatenergy.com" },
-  { name: "Michael Dada", role: "Super User", workstream: "PM", email: "MDada@seplatenergy.com" },
-  { name: "Christian Akamigbo", role: "Super User", workstream: "PM", email: "CAkamigbo@seplatenergy.com" },
-  { name: "Chigozie Okonkwo", role: "Super User", workstream: "PM", email: "Chigozie.Okonkwo@seplatenergy.com" },
-  { name: "Edet Eka", role: "Super User", workstream: "PS", email: "EEka@seplatenergy.com" },
-  { name: "Oluwatosin Odewoye", role: "Super User", workstream: "PS", email: "OOdewoye@seplatenergy.com" },
-  { name: "Oluwabunmi Olaniyan", role: "Super User", workstream: "SCM", email: "3P-OOlaniyan@seplatenergy.com" },
-  { name: "Anozie Ezeribe", role: "Super User", workstream: "SCM", email: "AEzeribe@seplatenergy.com" },
-  { name: "Victor America", role: "Super User", workstream: "SCM", email: "VAmerica@seplatenergy.com" },
-  { name: "Onomen Ikuenobe", role: "Super User", workstream: "SCM", email: "OIkuenobe@seplatenergy.com" },
-  { name: "Nsikak Lawson", role: "Super User", workstream: "SCM", email: "NLawson@seplatenergy.com" },
-  { name: "Vivien Obiokafor", role: "Super User", workstream: "SCM", email: "VObiokafor@seplatenergy.com" },
-  { name: "Ucheoma Ezirim", role: "Super User", workstream: "SCM", email: "UEzirim@seplatenergy.com" },
+  { name: "Godwin Abii-Ndoh", role: "Super User", workstream: "Finance & Controlling (FICO)", email: "GAbii-Ndoh@seplatenergy.com" },
+  { name: "Collins Ezeocha", role: "Super User", workstream: "Finance & Controlling (FICO)", email: "CEzeocha@seplatenergy.com" },
+  { name: "Adedeji Ajakaye", role: "Super User", workstream: "Finance & Controlling (FICO)", email: "AAjakaye@seplatenergy.com" },
+  { name: "Franklin Obika", role: "Super User", workstream: "Finance & Controlling (FICO)", email: "fobika@seplatenergy.com" },
+  { name: "Titilayo Sonoiki", role: "Super User", workstream: "Finance & Controlling (FICO)", email: "TSonoiki@seplatenergy.com" },
+  { name: "Israel Ekiko", role: "Super User", workstream: "Governance, Risk & Controls (GRC)", email: "IEkiko@seplatenergy.com" },
+  { name: "Osaretin Uwumarogie", role: "Super User", workstream: "Plant Maintenance", email: "3P-OUwumarogie@seplatenergy.com" },
+  { name: "Ulysses Akporoba", role: "Super User", workstream: "Plant Maintenance", email: "3P-UAkporoba@seplatenergy.com" },
+  { name: "Eseoghene Abeke", role: "Super User", workstream: "Plant Maintenance", email: "3P-EAbeke@seplatenergy.com" },
+  { name: "Emmanuel Ogri", role: "Super User", workstream: "Plant Maintenance", email: "3P-EOgri@seplatenergy.com" },
+  { name: "Jonathan Gharoro", role: "Super User", workstream: "Plant Maintenance", email: "JGharoro@seplatenergy.com" },
+  { name: "Ademola Oluwasanmi", role: "Super User", workstream: "Plant Maintenance", email: "AOluwasanmi@seplatenergy.com" },
+  { name: "Sammy Otu", role: "Super User", workstream: "Plant Maintenance", email: "SOtu@seplatenergy.com" },
+  { name: "Chiossa Osai", role: "Super User", workstream: "Plant Maintenance", email: "COssai@seplatenergy.com" },
+  { name: "Thomas Mokwenyei", role: "Super User", workstream: "Plant Maintenance", email: "TMokwenyei@seplatenergy.com" },
+  { name: "Gideon Orusa", role: "Super User", workstream: "Plant Maintenance", email: "GOrusa@seplatenergy.com" },
+  { name: "Samuel Akpan", role: "Super User", workstream: "Plant Maintenance", email: "Samuel.Akpan@seplatenergy.com" },
+  { name: "Uwem Ukpe", role: "Super User", workstream: "Plant Maintenance", email: "UUkpe@seplatenergy.com" },
+  { name: "Michael Dada", role: "Super User", workstream: "Plant Maintenance", email: "MDada@seplatenergy.com" },
+  { name: "Christian Akamigbo", role: "Super User", workstream: "Plant Maintenance", email: "CAkamigbo@seplatenergy.com" },
+  { name: "Chigozie Okonkwo", role: "Super User", workstream: "Plant Maintenance", email: "Chigozie.Okonkwo@seplatenergy.com" },
+  { name: "Edet Eka", role: "Super User", workstream: "Project Systems (PS)", email: "EEka@seplatenergy.com" },
+  { name: "Oluwatosin Odewoye", role: "Super User", workstream: "Project Systems (PS)", email: "OOdewoye@seplatenergy.com" },
+  { name: "Oluwabunmi Olaniyan", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "3P-OOlaniyan@seplatenergy.com" },
+  { name: "Anozie Ezeribe", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "AEzeribe@seplatenergy.com" },
+  { name: "Victor America", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "VAmerica@seplatenergy.com" },
+  { name: "Onomen Ikuenobe", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "OIkuenobe@seplatenergy.com" },
+  { name: "Nsikak Lawson", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "NLawson@seplatenergy.com" },
+  { name: "Vivien Obiokafor", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "VObiokafor@seplatenergy.com" },
+  { name: "Ucheoma Ezirim", role: "Super User", workstream: "Supply Chain & Materials Management ", email: "UEzirim@seplatenergy.com" },
 ];
 
 const smes: IContact[] = [
-  { name: "Joy Efoechoku", role: "SME", workstream: "Finance", email: "JEfoechoku@seplatenergy.com" },
-  { name: "Effiong Okokon", role: "SME", workstream: "Finance", email: "EOkokon@seplatenergy.com" },
-  { name: "Paul Moses", role: "SME", workstream: "Finance", email: "PMoses@seplatenergy.com" },
-  { name: "Adebayo Bodede", role: "SME", workstream: "GRC", email: "ABodede@seplatenergy.com" },
+  { name: "Joy Efoechoku", role: "SME", workstream: "Finance & Controlling (FICO)", email: "JEfoechoku@seplatenergy.com" },
+  { name: "Effiong Okokon", role: "SME", workstream: "Finance & Controlling (FICO)", email: "EOkokon@seplatenergy.com" },
+  { name: "Paul Moses", role: "SME", workstream: "Finance & Controlling (FICO)", email: "PMoses@seplatenergy.com" },
+  { name: "Adebayo Bodede", role: "SME", workstream: "Governance, Risk & Controls (GRC)", email: "ABodede@seplatenergy.com" },
   { name: "Dolapo Egbonwon", role: "SME", workstream: "Technical", email: "degbonwon@seplatenergy.com" },
   { name: "Taiwo Awonaiya", role: "SME", workstream: "Technical", email: "TAwonaiya@seplatenergy.com" },
   { name: "Ifeoluwa Onifade", role: "SME", workstream: "Technical", email: "IOnifade@seplatenergy.com" },
   { name: "Olawale Kareem", role: "SME", workstream: "Technical", email: "OKareem@seplatenergy.com" },
-  { name: "Oluseyi Ajala", role: "SME", workstream: "PM", email: "oajala@seplatenergy.com" },
-  { name: "Oluwaseun Olasunmonu", role: "SME", workstream: "PM", email: "OOlasunmonu@seplatenergy.com" },
-  { name: "Odudu Umoh", role: "SME", workstream: "PM", email: "OUmoh@seplatenergy.com" },
-  { name: "Itoro Ukpong", role: "SME", workstream: "PM", email: "IUkpong@seplatenergy.com" },
-  { name: "Eniola Olowoyeye", role: "SME", workstream: "PM", email: "EOlowoyeye@seplatenergy.com" },
-  { name: "Gabriel Fagade", role: "SME", workstream: "PM", email: "GFagade@seplatenergy.com" },
-  { name: "Wole Obawole", role: "SME", workstream: "PS", email: "Wole.Obawole@seplatenergy.com" },
-  { name: "Chioma Eze", role: "SME", workstream: "PS", email: "CEze@seplatenergy.com" },
-  { name: "Obeto Utomi", role: "SME", workstream: "SCM", email: "OUtomi@seplatenergy.com" },
-  { name: "Stephen Onumara", role: "SME", workstream: "SCM", email: "SOnumara@seplatenergy.com" },
-  { name: "Aminu Yahya", role: "SME", workstream: "SCM", email: "AYahya@seplatenergy.com" },
-  { name: "Adedotun Ogundare", role: "SME", workstream: "SCM", email: "AOgundare@seplatenergy.com" },
-  { name: "Bernard Mujakperuo", role: "SME", workstream: "SCM", email: "BMujakperuo@seplatenergy.com" },
-  { name: "Ndifreke Umoren", role: "SME", workstream: "SCM", email: "NUmoren@seplatenergy.com" },
+  { name: "Oluseyi Ajala", role: "SME", workstream: "Plant Maintenance", email: "oajala@seplatenergy.com" },
+  { name: "Oluwaseun Olasunmonu", role: "SME", workstream: "Plant Maintenance", email: "OOlasunmonu@seplatenergy.com" },
+  { name: "Odudu Umoh", role: "SME", workstream: "Plant Maintenance", email: "OUmoh@seplatenergy.com" },
+  { name: "Itoro Ukpong", role: "SME", workstream: "Plant Maintenance", email: "IUkpong@seplatenergy.com" },
+  { name: "Eniola Olowoyeye", role: "SME", workstream: "Plant Maintenance", email: "EOlowoyeye@seplatenergy.com" },
+  { name: "Gabriel Fagade", role: "SME", workstream: "Plant Maintenance", email: "GFagade@seplatenergy.com" },
+  { name: "Wole Obawole", role: "SME", workstream: "Project Systems (PS)", email: "Wole.Obawole@seplatenergy.com" },
+  { name: "Chioma Eze", role: "SME", workstream: "Project Systems (PS)", email: "CEze@seplatenergy.com" },
+  { name: "Obeto Utomi", role: "SME", workstream: "Supply Chain & Materials Management ", email: "OUtomi@seplatenergy.com" },
+  { name: "Stephen Onumara", role: "SME", workstream: "Supply Chain & Materials Management ", email: "SOnumara@seplatenergy.com" },
+  { name: "Aminu Yahya", role: "SME", workstream: "Supply Chain & Materials Management ", email: "AYahya@seplatenergy.com" },
+  { name: "Adedotun Ogundare", role: "SME", workstream: "Supply Chain & Materials Management ", email: "AOgundare@seplatenergy.com" },
+  { name: "Bernard Mujakperuo", role: "SME", workstream: "Supply Chain & Materials Management ", email: "BMujakperuo@seplatenergy.com" },
+  { name: "Ndifreke Umoren", role: "SME", workstream: "Supply Chain & Materials Management ", email: "NUmoren@seplatenergy.com" },
 ];
 
 const dataAgents: IContact[] = [
-  { name: "Franklin Obika", role: "Data Agent", workstream: "Finance", email: "fobika@seplatenergy.com" },
-  { name: "Titilayo Sonoiki", role: "Data Agent", workstream: "Finance", phone: "+2348072795770", email: "TSonoiki@seplatenergy.com" },
-  { name: "Michael Dada", role: "Data Agent", workstream: "PM", phone: "+2349062460142", email: "MDada@seplatenergy.com" },
-  { name: "Christian Akamigbo", role: "Data Agent", workstream: "PM", phone: "+2348065215741", email: "CAkamigbo@seplatenergy.com" },
-  { name: "Obinna Iwu", role: "Data Agent", workstream: "PM", email: "OIwu@seplatenergy.com" },
-  { name: "Chudi Osisiogu", role: "Data Agent", workstream: "PM", email: "COsisiogu@seplatenergy.com" },
-  { name: "Desmond Chukwu", role: "Data Agent", workstream: "PM", email: "CDesmond@seplatenergy.com" },
-  { name: "Isonguyo Essien", role: "Data Agent", workstream: "PM", email: "Isonguyo.Essien@seplatenergy.com" },
-  { name: "TBC", role: "Data Agent", workstream: "PS", email: "" },
-  { name: "Victor America", role: "Data Agent", workstream: "SCM", email: "VAmerica@seplatenergy.com" },
-  { name: "Onomen Ikuenobe", role: "Data Agent", workstream: "SCM", phone: "+2348066391148", email: "OIkuenobe@seplatenergy.com" },
-  { name: "Simon Adekunle", role: "Data Agent", workstream: "SCM", email: "SAdekunle@seplatenergy.com" },
+  { name: "Franklin Obika", role: "Data Agent", workstream: "Finance & Controlling (FICO)", email: "fobika@seplatenergy.com" },
+  { name: "Titilayo Sonoiki", role: "Data Agent", workstream: "Finance & Controlling (FICO)", phone: "+2348072795770", email: "TSonoiki@seplatenergy.com" },
+  { name: "Michael Dada", role: "Data Agent", workstream: "Plant Maintenance", phone: "+2349062460142", email: "MDada@seplatenergy.com" },
+  { name: "Christian Akamigbo", role: "Data Agent", workstream: "Plant Maintenance", phone: "+2348065215741", email: "CAkamigbo@seplatenergy.com" },
+  { name: "Obinna Iwu", role: "Data Agent", workstream: "Plant Maintenance", email: "OIwu@seplatenergy.com" },
+  { name: "Chudi Osisiogu", role: "Data Agent", workstream: "Plant Maintenance", email: "COsisiogu@seplatenergy.com" },
+  { name: "Desmond Chukwu", role: "Data Agent", workstream: "Plant Maintenance", email: "CDesmond@seplatenergy.com" },
+  { name: "Isonguyo Essien", role: "Data Agent", workstream: "Plant Maintenance", email: "Isonguyo.Essien@seplatenergy.com" },
+  { name: "TBC", role: "Data Agent", workstream: "Project Systems (PS)", email: "" },
+  { name: "Victor America", role: "Data Agent", workstream: "Supply Chain & Materials Management ", email: "VAmerica@seplatenergy.com" },
+  { name: "Onomen Ikuenobe", role: "Data Agent", workstream: "Supply Chain & Materials Management ", phone: "+2348066391148", email: "OIkuenobe@seplatenergy.com" },
+  { name: "Simon Adekunle", role: "Data Agent", workstream: "Supply Chain & Materials Management ", email: "SAdekunle@seplatenergy.com" },
 ];
 
 
@@ -317,13 +318,13 @@ const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) 
           </div>
 
           {(() => {
-            const DEPARTMENTS = ["Finance", "GRC", "PM", "PS", "SCM", "Technical"];
+            const DEPARTMENTS = ["Finance & Controlling (FICO)", "Governance, Risk & Controls (GRC)", "Plant Maintenance", "Project Systems (PS)", "Supply Chain & Materials Management ", "Technical"];
             const ROLE_ORDER: ContactRole[] = ["SME", "Super User", "Data Agent"];
             const allContacts = [...superUsers, ...smes, ...dataAgents.filter(d => d.name !== "TBC")];
 
             return DEPARTMENTS.map((dept) => {
               const deptKey = `dept-${dept}`;
-              const isOpen = openGroups[deptKey] ?? (dept === "Finance");
+              const isOpen = openGroups[deptKey] ?? (dept === "Finance & Controlling (FICO)");
               const deptPeople = allContacts.filter(c => c.workstream === dept);
               if (!deptPeople.length) return null;
 
@@ -332,7 +333,7 @@ const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) 
                   <button type="button" className={styles.contactToggle} onClick={() => toggleGroup(deptKey)} aria-expanded={isOpen}>
                     <div className={styles.blockHead}>
                       <div>
-                        <p className={styles.blockKicker}>Department</p>
+                        <p className={styles.blockKicker}>{dept === "Technical" ? "Workstream" : "Functional Areas"}</p>
                         <h3>{dept}</h3>
                       </div>
                       <div className={styles.blockHeadRight}>
@@ -357,7 +358,7 @@ const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) 
                           <div key={role} className={styles.workstreamGroup}>
                             <button type="button" className={styles.workstreamToggle} onClick={() => toggleWorkstream(roleKey)} aria-expanded={roleOpen}>
                               <span className={styles.workstreamAccent} />
-                              <span className={styles.workstreamLabel}>{role}s <span className={styles.workstreamSubLabel}>— {roleMeta[role]}</span></span>
+                              <span className={styles.workstreamLabel}>{role}s <span className={styles.workstreamSubLabel}></span></span>
                               <span className={styles.workstreamCount}>{people.length}</span>
                               <svg className={`${styles.toggleChevron} ${roleOpen ? styles.toggleChevronOpen : ""}`} width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                             </button>

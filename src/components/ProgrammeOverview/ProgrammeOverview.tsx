@@ -362,6 +362,14 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
     'Seplat Energy Producing Nigeria Unlimited, Seplat'
   ];
 
+  const functionals = [
+    'Finance & Controlling (FICO) including Joint Venture Accounting (JVA)',
+    'Governance, Risk & Controls (GRC)',
+    'Supply Chain including Materials Management, Lean EWM, and SAP Ariba',
+    'Project/Engineering',
+    'Maintenance'
+];
+
   interface IWebinarSession {
     id: string;
     label: string;
@@ -823,6 +831,14 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
             <div className={styles.scopeMetaLabel}>Businesses in scope</div>
             <div className={styles.businessTags}>
               {businesses.map((business, index) => (
+                <span key={index} className={styles.businessTag}>{business}</span>
+              ))}
+            </div>
+          </div>
+          <div className={styles.businessesWrap}>
+            <div className={styles.scopeMetaLabel}>Functional Areas</div>
+            <div className={styles.businessTags}>
+              {functionals.map((business, index) => (
                 <span key={index} className={styles.businessTag}>{business}</span>
               ))}
             </div>

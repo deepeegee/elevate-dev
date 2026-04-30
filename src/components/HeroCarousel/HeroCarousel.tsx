@@ -7,6 +7,8 @@ export interface IHeroCarouselItem {
   alt: string;
   title?: string;
   subtitle?: string;
+  eventName?: string;
+  eventDate?: Date;
 }
 
 export interface IHeroCarouselProps {
@@ -136,8 +138,18 @@ const HeroCarousel: React.FC<IHeroCarouselProps> = ({
             </div>
           </div>
 
-          {(activeItem.title || activeItem.subtitle) && (
+          {(activeItem.title || activeItem.subtitle || activeItem.eventName || activeItem.eventDate) && (
             <div className={styles.overlayText}>
+              {(activeItem.eventName || activeItem.eventDate) && (
+                <div className={styles.overlayEventMeta}>
+                  
+                  {activeItem.eventDate && (
+                    <span className={styles.overlayEventDate}>
+                      {activeItem.eventDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                    </span>
+                  )}
+                </div>
+              )}
               {activeItem.title && <h3>{activeItem.title}</h3>}
               {activeItem.subtitle && <p>{activeItem.subtitle}</p>}
             </div>
@@ -199,12 +211,22 @@ const HeroCarousel: React.FC<IHeroCarouselProps> = ({
               </button>
             </div>
 
-            {(activeItem.title || activeItem.subtitle) && (
+            {(activeItem.title || activeItem.subtitle || activeItem.eventName || activeItem.eventDate) && (
               <div className={styles.modalImageInfo}>
                 <div className={styles.modalImageInfoInner}>
                   <div className={styles.modalImageCounter}>
                     {activeIndex + 1} / {items.length}
                   </div>
+                  {(activeItem.eventName || activeItem.eventDate) && (
+                    <div className={styles.modalEventMeta}>
+
+                      {activeItem.eventDate && (
+                        <span className={styles.modalEventDate}>
+                          {activeItem.eventDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   {activeItem.title && (
                     <h3 className={styles.modalImageTitle}>{activeItem.title}</h3>
                   )}
