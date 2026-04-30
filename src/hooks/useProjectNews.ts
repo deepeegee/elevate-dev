@@ -54,58 +54,54 @@ const parseItems = (raw: any[]): INewsItem[] =>
 const MOCK_UPDATES: INewsItem[] = [
   {
     id: 1,
-    title: "Design Phase Now Underway",
-    body: "The programme has officially entered the Design phase. Workshops are scheduled across Finance, SCM, and Maintenance workstreams throughout March and April. BPOs and SMEs should expect calendar invites from the PMO this week.",
+    title: "Design Workshops Underway — Co-creating our future with SAP S/4HANA at Temple Towers",
+    body: `Our design workshops are now underway, bringing together Subject Matter Experts, Change Agents, and Super Users at Temple Towers to shape the SAP S/4HANA solution. The sessions are focused on understanding how our processes work today, aligning on what good looks like tomorrow, and designing a system that supports efficient, consistent ways of working across the business.
+
+Day one began with a project kick-off session where the wider project team came together to ask questions, clarify expectations, and align on scope, approach, and ways of working. It was an important opportunity to ensure everyone had a shared understanding of what the design phase will deliver, how decisions will be made, and how each team will contribute to the overall outcome.
+
+Workshops started in early April and will continue through to the end of May, covering key functional areas including Plant Maintenance, FICO, Project Systems, GRC, Supply Chain, and Maintenance. As the sessions progress, we will continue to share highlights, key decisions, and what to expect next as we move through design and into the next stages of delivery.`,
     category: "Project Update",
     imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Elev8.png",
-    publishedDate: "2026-03-10T09:00:00Z",
-    authorName: "Project PMO",
+    publishedDate: "2026-10-03T00:00:00Z",
+    authorName: "Oluwatosin Orunesajo",
     isFeatured: true,
   },
   {
     id: 2,
-    title: "Change Network Onboarding Complete",
-    body: "All Super Users, SMEs, and Data Agents have completed onboarding into the Change Network. The first formal cadence meeting is scheduled for mid-April. Materials will be shared via the Change Network hub.",
+    title: "Change Network is LIVE — Our Change Network is officially inaugurated and ready to lead adoption",
+    body: `The Change Network has now been inaugurated, bringing together our SMEs, Super Users, and Data Agents in one room to formally onboard them into their roles as Change Network members. The session, attended by the wider project team, created a shared understanding of why the network matters and how it will support the organisation through the transformation journey.
+
+During the onboarding, we walked through what the Change Network role entails, how members will engage their teams, and the cadence for how the network will meet and stay aligned. A short role play was also conducted to bring the responsibilities to life and demonstrate what "driving change" looks like in practice — from reinforcing key messages to capturing feedback and supporting readiness across teams.
+
+To close, members took the Change Network oath, committing to drive the change with their best efforts and lead by example. The energy in the room was positive, and the collective commitment was clear.
+
+Visit the Change Network page to find your Change Network members and stay connected to updates, reminders, and ways to engage through the Change Network link.`,
     category: "Project Update",
-    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(3).jpg",
-    publishedDate: "2026-03-05T10:30:00Z",
-    authorName: "OCM Team",
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/SEPNU-ITTeam/ProjectsandUTC/SiteAssets/S4HANA/Change%20Network/IMG_0415.jpg",
+    publishedDate: "2026-05-03T00:00:00Z",
+    authorName: "Oluwatosin Orunesajo",
     isFeatured: false,
   },
   {
     id: 3,
-    title: "Project Elevate SharePoint Portal Live",
-    body: "The Project Elevate SharePoint portal is now live and accessible to all project stakeholders. Use it to find programme updates, the change network directory, FAQs, and key documents.",
+    title: "Project Elevate has taken off — SAP S/4HANA is coming to Seplat, and we are preparing for lift off",
+    body: `Project Elevate has officially kicked off, setting Seplat on course to move from multiple legacy systems to one unified SAP S/4HANA Private Cloud Edition platform. Think of this as our aircraft leaving the gate, with the crew aligning on the flight plan, safety checks, and destination. This transformation is designed to address a fragmented technology landscape, inconsistent processes, minimal automation, and duplicated data — so we can operate with a single source of truth across the Group.
+
+What does that mean in practical terms? Elevate will enable a unified system, standardised best-practice processes, more automated workflows, and reduced total cost of ownership. The programme spans key areas including Finance and Controlling (including JVA and planning and budgeting), Governance Risk and Controls, Supply Chain (Materials Management, Lean EWM, Ariba), Projects, and Maintenance — supporting the goal of One Seplat way of working across Seplat entities.
+
+Right now, we are in the design phase and gearing up for build as the next major transition. As part of our pre-take-off checks, SMEs, Super Users, and Data Agents are being selected to help shape the solution, validate how work is done today, and support readiness across their teams.
+
+Watch out for official project communications.`,
     category: "Project Update",
-    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(4).jpg",
-    publishedDate: "2026-02-20T08:00:00Z",
-    authorName: "Project PMO",
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Elev8.png",
+    publishedDate: "2026-08-03T00:00:00Z",
+    authorName: "Oluwatosin Orunesajo",
     isFeatured: false,
   },
 ];
 
-const MOCK_SOCIAL: INewsItem[] = [
-  {
-    id: 4,
-    title: "Team Building Day — Lagos Office",
-    body: "The project team came together for a full-day team building session at the Lagos office. Highlights included collaborative workshops, a project quiz, and a team lunch. Great energy going into the Design phase.",
-    category: "Social",
-    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(17).jpg",
-    publishedDate: "2026-03-08T14:00:00Z",
-    authorName: "OCM Team",
-    isFeatured: true,
-  },
-  {
-    id: 5,
-    title: "Welcome to the Newest Change Network Members",
-    body: "We are delighted to welcome the latest cohort of Change Network members across Finance, PM, and SCM. Their energy and commitment to the programme is already showing — welcome aboard.",
-    category: "Social",
-    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(18).jpg",
-    publishedDate: "2026-02-28T11:00:00Z",
-    authorName: "OCM Team",
-    isFeatured: false,
-  },
-];
+// No Social items in the current dataset — keeping array for when data is added
+const MOCK_SOCIAL: INewsItem[] = [];
 
 // ─── Hook ──────────────────────────SPHttpClient | undefined───────────────────────────────────────────
 
