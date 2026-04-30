@@ -50,13 +50,13 @@ const superUsers: IContact[] = [
   { name: "Chigozie Okonkwo", role: "Super User", workstream: "PM", email: "Chigozie.Okonkwo@seplatenergy.com" },
   { name: "Edet Eka", role: "Super User", workstream: "PS", email: "EEka@seplatenergy.com" },
   { name: "Oluwatosin Odewoye", role: "Super User", workstream: "PS", email: "OOdewoye@seplatenergy.com" },
-  { name: "Oluwabunmi Olaniyan", role: "Super User", workstream: "SCM, Ariba", email: "3P-OOlaniyan@seplatenergy.com" },
-  { name: "Anozie Ezeribe", role: "Super User", workstream: "SCM, Ariba", email: "AEzeribe@seplatenergy.com" },
-  { name: "Victor America", role: "Super User", workstream: "SCM, Procurement", email: "VAmerica@seplatenergy.com" },
-  { name: "Onomen Ikuenobe", role: "Super User", workstream: "SCM, Ariba", email: "OIkuenobe@seplatenergy.com" },
-  { name: "Nsikak Lawson", role: "Super User", workstream: "SCM, Ariba", email: "NLawson@seplatenergy.com" },
-  { name: "Vivien Obiokafor", role: "Super User", workstream: "SCM, Procurement", email: "VObiokafor@seplatenergy.com" },
-  { name: "Ucheoma Ezirim", role: "Super User", workstream: "SCM, Mat Mgmt", email: "UEzirim@seplatenergy.com" },
+  { name: "Oluwabunmi Olaniyan", role: "Super User", workstream: "SCM", email: "3P-OOlaniyan@seplatenergy.com" },
+  { name: "Anozie Ezeribe", role: "Super User", workstream: "SCM", email: "AEzeribe@seplatenergy.com" },
+  { name: "Victor America", role: "Super User", workstream: "SCM", email: "VAmerica@seplatenergy.com" },
+  { name: "Onomen Ikuenobe", role: "Super User", workstream: "SCM", email: "OIkuenobe@seplatenergy.com" },
+  { name: "Nsikak Lawson", role: "Super User", workstream: "SCM", email: "NLawson@seplatenergy.com" },
+  { name: "Vivien Obiokafor", role: "Super User", workstream: "SCM", email: "VObiokafor@seplatenergy.com" },
+  { name: "Ucheoma Ezirim", role: "Super User", workstream: "SCM", email: "UEzirim@seplatenergy.com" },
 ];
 
 const smes: IContact[] = [
@@ -76,12 +76,12 @@ const smes: IContact[] = [
   { name: "Gabriel Fagade", role: "SME", workstream: "PM", email: "GFagade@seplatenergy.com" },
   { name: "Wole Obawole", role: "SME", workstream: "PS", email: "Wole.Obawole@seplatenergy.com" },
   { name: "Chioma Eze", role: "SME", workstream: "PS", email: "CEze@seplatenergy.com" },
-  { name: "Obeto Utomi", role: "SME", workstream: "SCM, Ariba", email: "OUtomi@seplatenergy.com" },
-  { name: "Stephen Onumara", role: "SME", workstream: "SCM, Ariba", email: "SOnumara@seplatenergy.com" },
-  { name: "Aminu Yahya", role: "SME", workstream: "SCM, Procurement", email: "AYahya@seplatenergy.com" },
-  { name: "Adedotun Ogundare", role: "SME", workstream: "SCM, Procurement", email: "AOgundare@seplatenergy.com" },
-  { name: "Bernard Mujakperuo", role: "SME", workstream: "SCM, Mat Mgmt", email: "BMujakperuo@seplatenergy.com" },
-  { name: "Ndifreke Umoren", role: "SME", workstream: "SCM, Mat Mgmt", email: "NUmoren@seplatenergy.com" },
+  { name: "Obeto Utomi", role: "SME", workstream: "SCM", email: "OUtomi@seplatenergy.com" },
+  { name: "Stephen Onumara", role: "SME", workstream: "SCM", email: "SOnumara@seplatenergy.com" },
+  { name: "Aminu Yahya", role: "SME", workstream: "SCM", email: "AYahya@seplatenergy.com" },
+  { name: "Adedotun Ogundare", role: "SME", workstream: "SCM", email: "AOgundare@seplatenergy.com" },
+  { name: "Bernard Mujakperuo", role: "SME", workstream: "SCM", email: "BMujakperuo@seplatenergy.com" },
+  { name: "Ndifreke Umoren", role: "SME", workstream: "SCM", email: "NUmoren@seplatenergy.com" },
 ];
 
 const dataAgents: IContact[] = [
@@ -94,9 +94,9 @@ const dataAgents: IContact[] = [
   { name: "Desmond Chukwu", role: "Data Agent", workstream: "PM", email: "CDesmond@seplatenergy.com" },
   { name: "Isonguyo Essien", role: "Data Agent", workstream: "PM", email: "Isonguyo.Essien@seplatenergy.com" },
   { name: "TBC", role: "Data Agent", workstream: "PS", email: "" },
-  { name: "Victor America", role: "Data Agent", workstream: "SCM - Procurement", email: "VAmerica@seplatenergy.com" },
-  { name: "Onomen Ikuenobe", role: "Data Agent", workstream: "SCM - Ariba", phone: "+2348066391148", email: "OIkuenobe@seplatenergy.com" },
-  { name: "Simon Adekunle", role: "Data Agent", workstream: "SCM - Ariba", email: "SAdekunle@seplatenergy.com" },
+  { name: "Victor America", role: "Data Agent", workstream: "SCM", email: "VAmerica@seplatenergy.com" },
+  { name: "Onomen Ikuenobe", role: "Data Agent", workstream: "SCM", phone: "+2348066391148", email: "OIkuenobe@seplatenergy.com" },
+  { name: "Simon Adekunle", role: "Data Agent", workstream: "SCM", email: "SAdekunle@seplatenergy.com" },
 ];
 
 
@@ -121,50 +121,76 @@ const DefaultAvatar: React.FC = () => (
 );
 
 
-interface IPersonTooltipProps {
+const HEADSHOT_BASE = "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/PROJECT%20ELEVATE/PROJECT%20ELEVATE/01.%20PMO%20Workstream/Project%20Team%20Mobilisation%20and%20Contacts/Change%20Network%20Pix";
+
+const buildFallbackUrl = (name: string): string => {
+  // Try common image extensions based on actual filenames in the folder
+  const encoded = encodeURIComponent(name);
+  return `${HEADSHOT_BASE}/${encoded}.jpg`;
+};
+
+interface IPersonCardProps {
   person: IContact;
   headshotMap: Record<string, string>;
 }
 
-const PersonTooltip: React.FC<IPersonTooltipProps> = ({ person, headshotMap }) => {
-  const imageUrl = headshotMap[normalizeNameSignature(person.name)];
-  const initials = person.name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+const EXTENSIONS = ['jpg', 'jpeg', 'JPG', 'PNG', 'png', 'JPEG'];
+
+const buildAttempts = (name: string): string[] => {
+  const encoded = encodeURIComponent(name);
+  const parts = name.trim().split(' ');
+  const reversed = parts.length >= 2
+    ? encodeURIComponent(`${parts[parts.length - 1]} ${parts.slice(0, -1).join(' ')}`)
+    : encoded;
+
+  const attempts: string[] = [];
+  // Original name, all extensions
+  EXTENSIONS.forEach(ext => attempts.push(`${HEADSHOT_BASE}/${encoded}.${ext}`));
+  // Reversed name, all extensions
+  EXTENSIONS.forEach(ext => attempts.push(`${HEADSHOT_BASE}/${reversed}.${ext}`));
+  return attempts;
+};
+
+const PersonCard: React.FC<IPersonCardProps> = ({ person, headshotMap }) => {
+  const mapped = headshotMap[normalizeNameSignature(person.name)];
+  const attempts = React.useMemo(() => buildAttempts(person.name), [person.name]);
+  const [attemptIndex, setAttemptIndex] = React.useState(0);
+  const [imgFailed, setImgFailed] = React.useState(false);
+  const initials = person.name.split(' ').map((n) => n[0]).slice(0, 2).join('').toUpperCase();
+
+  const imgSrc = mapped ?? attempts[attemptIndex];
+
+  const handleError = (): void => {
+    if (attemptIndex < attempts.length - 1) {
+      setAttemptIndex((prev) => prev + 1);
+    } else {
+      setImgFailed(true);
+    }
+  };
 
   return (
-    <div className={styles.personTooltipWrap}>
+    <div className={styles.personCard}>
       <div className={styles.personAvatar}>
-        {imageUrl ? (
-          <img src={imageUrl} alt={person.name} loading="lazy" />
-        ) : (
+        {imgFailed ? (
           <div className={styles.personInitials} aria-hidden="true">{initials}</div>
+        ) : (
+          <img
+            src={imgSrc}
+            alt={person.name}
+            loading="lazy"
+            onError={handleError}
+          />
         )}
       </div>
       <span className={styles.personName}>{person.name}</span>
-      <div className={styles.personTooltip} role="tooltip">
-        <div className={styles.personTooltipAvatar}>
-          {imageUrl ? (
-            <img src={imageUrl} alt={person.name} />
-          ) : (
-            <div className={styles.personInitials}>{initials}</div>
-          )}
-        </div>
-        <div className={styles.personTooltipInfo}>
-          <p className={styles.personTooltipName}>{person.name}</p>
-          <p className={styles.personTooltipRole}>{person.role} · {person.workstream}</p>
-          {person.email && (
-            <a href={`mailto:${person.email}`} className={styles.personTooltipEmail}>
-              {person.email}
-            </a>
-          )}
-          {person.phone && (
-            <p className={styles.personTooltipPhone}>{person.phone}</p>
-          )}
-        </div>
-      </div>
+      {person.email && (
+        <a href={`mailto:${person.email}`} className={styles.personEmail}>
+          {person.email}
+        </a>
+      )}
     </div>
   );
 };
-
 
 const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) => {
   const [openGroups, setOpenGroups] = React.useState<Record<string, boolean>>({
@@ -273,175 +299,88 @@ const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) 
             <p className={styles.cardLabel}>What members do</p>
             <h2>Key Responsibilities</h2>
             <ul className={styles.bulletList}>
-              <li>Stay aligned through the network cadence and channels.</li>
-              <li>Attend deep dives to validate what is changing and why.</li>
-              <li>Join working sessions to translate impacts for each team.</li>
-              <li>Help capture impacts from explore and design activities.</li>
-              <li>Close readiness actions and surface risks early.</li>
-              <li>Support mitigation before continuity is affected.</li>
+              <li>Cascade deep dive outcomes to your teams, what is changing, why, who is impacted, and when</li>
+              <li>Translate outcomes into team level impacts and keep the impact actions log current as decisions evolve</li>
+              <li>Drive readiness actions to closure, communications, training inputs, and local enablement</li>
+              <li>Support teams through the change, answer questions, and reinforce new ways of working</li>
+              <li>Feed back sentiment and issues, surface risks early, and escalate with practical mitigation actions</li>
             </ul>
           </article>
         </section>
 
-        {/* Meet the people section */}
+        {/* Meet the people section — grouped by department, then by role */}
         <section className={styles.contactsSection}>
           <div className={styles.sectionHead}>
             <p className={styles.cardLabel}>The people behind the network</p>
             <h2>Meet the people driving SAP S/4 Hana change in Seplat</h2>
-            <p>Browse by role classification, then by workstream. Hover over any person to see their contact details.</p>
+            <p>Browse by department, then by role. Email addresses shown under each person.</p>
           </div>
 
-          {/* Super Users */}
           {(() => {
-            const groupKey = "superUsers";
-            const isOpen = openGroups[groupKey];
-            const workstreams = getWorkstreams(superUsers);
-            return (
-              <article className={styles.contactBlock}>
-                <button type="button" className={styles.contactToggle} onClick={() => toggleGroup(groupKey)} aria-expanded={isOpen}>
-                  <div className={styles.blockHead}>
-                    <div>
-                      <p className={styles.blockKicker}>High Level Support</p>
-                      <h3>Super Users</h3>
-                    </div>
-                    <div className={styles.blockHeadRight}>
-                      <span>{superUsers.length} members</span>
-                      <svg className={`${styles.toggleChevron} ${isOpen ? styles.toggleChevronOpen : ""}`} width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </div>
-                  </div>
-                </button>
-                {isOpen && (
-                  <div className={styles.workstreamList}>
-                    {workstreams.map((ws) => {
-                      const wsKey = `superUsers-${ws}`;
-                      const wsOpen = openWorkstreams[wsKey] ?? true;
-                      const people = superUsers.filter((c) => (c.workstream ?? "General") === ws);
-                      return (
-                        <div key={ws} className={styles.workstreamGroup}>
-                          <button type="button" className={styles.workstreamToggle} onClick={() => toggleWorkstream(wsKey)} aria-expanded={wsOpen}>
-                            <span className={styles.workstreamAccent} />
-                            <span className={styles.workstreamLabel}>{ws}</span>
-                            <span className={styles.workstreamCount}>{people.length}</span>
-                            <svg className={`${styles.toggleChevron} ${wsOpen ? styles.toggleChevronOpen : ""}`} width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                          </button>
-                          {wsOpen && (
-                            <div className={styles.headshotGrid}>
-                              {people.map((person) => (
-                                <PersonTooltip key={person.email || person.name} person={person} headshotMap={headshotMap} />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </article>
-            );
-          })()}
+            const DEPARTMENTS = ["Finance", "GRC", "PM", "PS", "SCM", "Technical"];
+            const ROLE_ORDER: ContactRole[] = ["SME", "Super User", "Data Agent"];
+            const allContacts = [...superUsers, ...smes, ...dataAgents.filter(d => d.name !== "TBC")];
 
-          {/* SMEs */}
-          {(() => {
-            const groupKey = "smes";
-            const isOpen = openGroups[groupKey];
-            const workstreams = getWorkstreams(smes);
-            return (
-              <article className={styles.contactBlock}>
-                <button type="button" className={styles.contactToggle} onClick={() => toggleGroup(groupKey)} aria-expanded={isOpen}>
-                  <div className={styles.blockHead}>
-                    <div>
-                      <p className={styles.blockKicker}>Deep Dive Support</p>
-                      <h3>SMEs</h3>
-                    </div>
-                    <div className={styles.blockHeadRight}>
-                      <span>{smes.length} members</span>
-                      <svg className={`${styles.toggleChevron} ${isOpen ? styles.toggleChevronOpen : ""}`} width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </div>
-                  </div>
-                </button>
-                {isOpen && (
-                  <div className={styles.workstreamList}>
-                    {workstreams.map((ws) => {
-                      const wsKey = `smes-${ws}`;
-                      const wsOpen = openWorkstreams[wsKey] ?? true;
-                      const people = smes.filter((c) => (c.workstream ?? "General") === ws);
-                      return (
-                        <div key={ws} className={styles.workstreamGroup}>
-                          <button type="button" className={styles.workstreamToggle} onClick={() => toggleWorkstream(wsKey)} aria-expanded={wsOpen}>
-                            <span className={styles.workstreamAccent} />
-                            <span className={styles.workstreamLabel}>{ws}</span>
-                            <span className={styles.workstreamCount}>{people.length}</span>
-                            <svg className={`${styles.toggleChevron} ${wsOpen ? styles.toggleChevronOpen : ""}`} width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                          </button>
-                          {wsOpen && (
-                            <div className={styles.headshotGrid}>
-                              {people.map((person) => (
-                                <PersonTooltip key={person.email || person.name} person={person} headshotMap={headshotMap} />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </article>
-            );
-          })()}
+            return DEPARTMENTS.map((dept) => {
+              const deptKey = `dept-${dept}`;
+              const isOpen = openGroups[deptKey] ?? (dept === "Finance");
+              const deptPeople = allContacts.filter(c => c.workstream === dept);
+              if (!deptPeople.length) return null;
 
-          {/* Data Agents */}
-          {(() => {
-            const groupKey = "dataAgents";
-            const isOpen = openGroups[groupKey];
-            const workstreams = getWorkstreams(dataAgents);
-            return (
-              <article className={styles.contactBlock}>
-                <button type="button" className={styles.contactToggle} onClick={() => toggleGroup(groupKey)} aria-expanded={isOpen}>
-                  <div className={styles.blockHead}>
-                    <div>
-                      <p className={styles.blockKicker}>All Data Related Support</p>
-                      <h3>Data Agents</h3>
+              return (
+                <article key={dept} className={styles.contactBlock}>
+                  <button type="button" className={styles.contactToggle} onClick={() => toggleGroup(deptKey)} aria-expanded={isOpen}>
+                    <div className={styles.blockHead}>
+                      <div>
+                        <p className={styles.blockKicker}>Department</p>
+                        <h3>{dept}</h3>
+                      </div>
+                      <div className={styles.blockHeadRight}>
+                        <span>{deptPeople.length} members</span>
+                        <svg className={`${styles.toggleChevron} ${isOpen ? styles.toggleChevronOpen : ""}`} width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </div>
                     </div>
-                    <div className={styles.blockHeadRight}>
-                      <span>{dataAgents.filter(d => d.name !== "TBC").length} members</span>
-                      <svg className={`${styles.toggleChevron} ${isOpen ? styles.toggleChevronOpen : ""}`} width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                  {isOpen && (
+                    <div className={styles.workstreamList}>
+                      {ROLE_ORDER.map((role) => {
+                        const roleKey = `${deptKey}-${role}`;
+                        const roleOpen = openWorkstreams[roleKey] ?? true;
+                        const people = deptPeople.filter(c => c.role === role);
+                        if (!people.length) return null;
+                        const roleMeta: Record<ContactRole, string> = {
+                          "SME": "Deep Dive Support",
+                          "Super User": "High Level Support",
+                          "Data Agent": "Data Related Support",
+                        };
+                        return (
+                          <div key={role} className={styles.workstreamGroup}>
+                            <button type="button" className={styles.workstreamToggle} onClick={() => toggleWorkstream(roleKey)} aria-expanded={roleOpen}>
+                              <span className={styles.workstreamAccent} />
+                              <span className={styles.workstreamLabel}>{role}s <span className={styles.workstreamSubLabel}>— {roleMeta[role]}</span></span>
+                              <span className={styles.workstreamCount}>{people.length}</span>
+                              <svg className={`${styles.toggleChevron} ${roleOpen ? styles.toggleChevronOpen : ""}`} width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            </button>
+                            {roleOpen && (
+                              <div className={styles.headshotGrid}>
+                                {people.map((person) => (
+                                  <PersonCard key={`${person.email}-${person.role}`} person={person} headshotMap={headshotMap} />
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
-                </button>
-                {isOpen && (
-                  <div className={styles.workstreamList}>
-                    {workstreams.map((ws) => {
-                      const wsKey = `dataAgents-${ws}`;
-                      const wsOpen = openWorkstreams[wsKey] ?? true;
-                      const people = dataAgents.filter((c) => (c.workstream ?? "General") === ws && c.name !== "TBC");
-                      if (!people.length) return null;
-                      return (
-                        <div key={ws} className={styles.workstreamGroup}>
-                          <button type="button" className={styles.workstreamToggle} onClick={() => toggleWorkstream(wsKey)} aria-expanded={wsOpen}>
-                            <span className={styles.workstreamAccent} />
-                            <span className={styles.workstreamLabel}>{ws}</span>
-                            <span className={styles.workstreamCount}>{people.length}</span>
-                            <svg className={`${styles.toggleChevron} ${wsOpen ? styles.toggleChevronOpen : ""}`} width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 5.5l5 5 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                          </button>
-                          {wsOpen && (
-                            <div className={styles.headshotGrid}>
-                              {people.map((person) => (
-                                <PersonTooltip key={person.email || person.name} person={person} headshotMap={headshotMap} />
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </article>
-            );
+                  )}
+                </article>
+              );
+            });
           })()}
         </section>
 
         {/* Footer */}
-        <section className={styles.footerCard}>
+        {/* <section className={styles.footerCard}>
           <div className={styles.footerInner}>
             <div>
               <p className={styles.cardLabel}>Project contact</p>
@@ -454,7 +393,7 @@ const ChangeNetwork: React.FC<IChangeNetworkProps> = ({ onBack, spHttpClient }) 
               <p>Use the change network to translate impacts locally, surface risks early, and keep teams confident through transition.</p>
             </div>
           </div>
-        </section>
+        </section> */}
 
       </div>
     </section>

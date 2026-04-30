@@ -58,7 +58,7 @@ const NewsCard: React.FC<{ item: INewsItem; onClick: () => void }> = ({ item, on
 const NewsLanding: React.FC<INewsLandingProps> = ({ onBack, onOpenDetail, initialTab = 'updates' }) => {
   const [activeTab, setActiveTab] = React.useState<'updates' | 'social'>(initialTab);
   const category: NewsCategory = activeTab === 'updates' ? 'Project Update' : 'Social';
-  const { items, loading, error } = useProjectNews(category);
+  const { items, loading, error } = useProjectNews(category, activeTab);
 
   return (
     <section className={styles.page}>

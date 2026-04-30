@@ -1,5 +1,5 @@
 import * as React from "react";
-// SPFX: import { SPHttpClient } from "@microsoft/sp-http";
+//import { SPHttpClient } from "@microsoft/sp-http";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -23,10 +23,7 @@ export interface IUseProjectNewsResult {
   error: string | undefined;
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-// SPFX: replace with your actual site URL
-const SITE_URL = "https://seplatenergy.sharepoint.com/sites/ExternalSharing";
+const SITE_URL = "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project";
 const LIST_NAME = "ProjectNews";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -60,7 +57,7 @@ const MOCK_UPDATES: INewsItem[] = [
     title: "Design Phase Now Underway",
     body: "The programme has officially entered the Design phase. Workshops are scheduled across Finance, SCM, and Maintenance workstreams throughout March and April. BPOs and SMEs should expect calendar invites from the PMO this week.",
     category: "Project Update",
-    imageUrl: undefined,
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Elev8.png",
     publishedDate: "2026-03-10T09:00:00Z",
     authorName: "Project PMO",
     isFeatured: true,
@@ -70,7 +67,7 @@ const MOCK_UPDATES: INewsItem[] = [
     title: "Change Network Onboarding Complete",
     body: "All Super Users, SMEs, and Data Agents have completed onboarding into the Change Network. The first formal cadence meeting is scheduled for mid-April. Materials will be shared via the Change Network hub.",
     category: "Project Update",
-    imageUrl: undefined,
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(3).jpg",
     publishedDate: "2026-03-05T10:30:00Z",
     authorName: "OCM Team",
     isFeatured: false,
@@ -80,7 +77,7 @@ const MOCK_UPDATES: INewsItem[] = [
     title: "Project Elevate SharePoint Portal Live",
     body: "The Project Elevate SharePoint portal is now live and accessible to all project stakeholders. Use it to find programme updates, the change network directory, FAQs, and key documents.",
     category: "Project Update",
-    imageUrl: undefined,
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(4).jpg",
     publishedDate: "2026-02-20T08:00:00Z",
     authorName: "Project PMO",
     isFeatured: false,
@@ -93,7 +90,7 @@ const MOCK_SOCIAL: INewsItem[] = [
     title: "Team Building Day — Lagos Office",
     body: "The project team came together for a full-day team building session at the Lagos office. Highlights included collaborative workshops, a project quiz, and a team lunch. Great energy going into the Design phase.",
     category: "Social",
-    imageUrl: undefined,
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(17).jpg",
     publishedDate: "2026-03-08T14:00:00Z",
     authorName: "OCM Team",
     isFeatured: true,
@@ -103,18 +100,18 @@ const MOCK_SOCIAL: INewsItem[] = [
     title: "Welcome to the Newest Change Network Members",
     body: "We are delighted to welcome the latest cohort of Change Network members across Finance, PM, and SCM. Their energy and commitment to the programme is already showing — welcome aboard.",
     category: "Social",
-    imageUrl: undefined,
+    imageUrl: "https://seplatenergy.sharepoint.com/sites/ExternalSharing/S4-HANA%20project/SiteAssets/SitePages/Project%20Elevate%20Gallery%20Images/Image%20(18).jpg",
     publishedDate: "2026-02-28T11:00:00Z",
     authorName: "OCM Team",
     isFeatured: false,
   },
 ];
 
-// ─── Hook ─────────────────────────────────────────────────────────────────────
+// ─── Hook ──────────────────────────SPHttpClient | undefined───────────────────────────────────────────
 
 export const useProjectNews = (
   category: NewsCategory,
-  _spHttpClient?: unknown
+  spHttpClient: unknown
 ): IUseProjectNewsResult => {
   const [items, setItems] = React.useState<INewsItem[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -123,59 +120,15 @@ export const useProjectNews = (
   React.useEffect(() => {
     let isMounted = true;
 
-    // TEST: return mock data immediately — remove this block in SPFx
-    const mockData = category === "Project Update" ? MOCK_UPDATES : MOCK_SOCIAL;
+    const mockData = category === 'Project Update' ? MOCK_UPDATES : MOCK_SOCIAL;
     if (isMounted) {
       setItems(mockData);
       setLoading(false);
     }
     return () => { isMounted = false; };
 
-    /* SPFX: restore from here — remove the mock block above and uncomment below
-    const fetchNews = async (): Promise<void> => {
-      try {
-        setLoading(true);
-        setError(undefined);
 
-        const endpoint = buildEndpoint(category);
-
-        const response = await (spHttpClient as any).get(
-          endpoint,
-          (window as any).SPHttpClient.configurations.v1,
-          {
-            headers: {
-              accept: "application/json;odata=nometadata",
-              "odata-version": "",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`News fetch failed: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        if (isMounted) {
-          setItems(parseItems(data.value ?? []));
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(
-            err instanceof Error ? err.message : "Could not load news items."
-          );
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void fetchNews();
-    return () => { isMounted = false; };
-    SPFX end restore */
-  }, [category]); // SPFX: add spHttpClient to deps: [category, spHttpClient]
+  }, [category, spHttpClient]);
 
   return { items, loading, error };
 };

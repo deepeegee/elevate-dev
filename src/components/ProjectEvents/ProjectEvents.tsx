@@ -113,7 +113,7 @@ const ProjectEvents: React.FC<IProjectEventsProps> = ({ onBack }) => {
             <p className={styles.eyebrow}>Project Elevate</p>
             <h1 className={styles.title}>Project Events</h1>
             <p className={styles.intro}>
-              Videos, recordings, and highlights from key project events and sessions. Select an event below to watch or read more.
+              Catch up on key project moments with videos, session recordings, and highlights.
             </p>
             {/* <div className={styles.heroCounts}>
               <div className={styles.heroCount}>

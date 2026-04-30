@@ -136,7 +136,7 @@
 .heroBanner {
   position: relative;
   width: min(1240px, 100%);
-  min-height: 380px;
+  min-height: 300px;
   margin: 18px auto 0;
   border-radius: 28px;
   overflow: hidden;
@@ -149,22 +149,24 @@
   inset: 0;
   background:
     linear-gradient(100deg, rgba(16, 38, 31, 0.84), rgba(0, 92, 64, 0.58)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop');
+    url('https://seplatenergy.sharepoint.com/:i:/r/sites/SEPNU-ITTeam/ProjectsandUTC/SiteAssets/S4HANA/helpers1.png');
   background-size: cover;
-  background-position: center;
+  background-position:center;
   transform: scale(1.02);
 }
 
 .heroOverlay {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 22px;
-  align-items: end;
-  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  min-height: 300px;
   padding: 34px;
   color: #ffffff;
+  text-align: left;
 }
 
 .heroMain {
@@ -902,7 +904,6 @@ a.helpRouteCard:hover {
     justify-content: center;
   }
 
-  .heroOverlay,
   .helpSection {
     grid-template-columns: 1fr;
   }

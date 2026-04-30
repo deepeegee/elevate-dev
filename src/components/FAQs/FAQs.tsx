@@ -647,30 +647,13 @@ const Faqs: React.FC<IFaqsProps> = ({ onBack, onNavigate }) => {
         <section className={styles.heroBanner} ref={heroRef}>
           <div className={styles.heroVisual} aria-hidden="true" />
           <div className={styles.heroOverlay}>
-            <div className={styles.heroMain}>
-              <p className={styles.pageEyebrow}>FAQs & Support</p>
-              <h1 className={styles.pageTitle}>Frequently asked questions</h1>
-              <p className={styles.pageSubtitle}>
-                Explore the full FAQ manual across general programme questions,
-                directly impacted colleagues, and not directly impacted
-                colleagues, with support routes built into the page.
-              </p>
-            </div>
-
-            {/* <div className={styles.heroStats}>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatValue}>{FAQS.length}</div>
-                <div className={styles.heroStatLabel}>Questions in manual</div>
-              </div>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatValue}>{AUDIENCE_SUMMARIES.length}</div>
-                <div className={styles.heroStatLabel}>Audience groups</div>
-              </div>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatValue}>4</div>
-                <div className={styles.heroStatLabel}>Support routes</div>
-              </div>
-            </div> */}
+            <p className={styles.pageEyebrow}>FAQs & Support</p>
+            <h1 className={styles.pageTitle}>Frequently asked questions</h1>
+            <p className={styles.pageSubtitle}>
+              Explore the full FAQ manual across general programme questions,
+              directly impacted colleagues, and not directly impacted
+              colleagues, with support routes built into the page.
+            </p>
           </div>
         </section>
       </div>

@@ -3,6 +3,7 @@ import styles from '../ProgrammeOverview/Programmeoverview.module.scss';
 //import overviewGalleryPreview from '../../assets/newroad6.png';
 import sapLogo from '../../assets/SeplatLogo.svg';
 import stakeholderMapImage from '../../assets/stakeholdermap.png';
+import governanceImage from '../../assets/governance.png';
 
 
 interface IPhaseRoadmapSegment {
@@ -315,23 +316,15 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
   const upcomingActivities = React.useMemo<IActivityMonthGroup[]>(
     () => [
       {
-        month: 'March 2026',
-        activities: ['General Project Awareness Webinar (Option 1)']
-      },
-      {
-        month: 'April 2026',
+        month: 'May 2026',
         activities: [
-          'General Project Awareness Webinar (Option 2)',
-          'Pulse Survey',
-          'Change Network Onboarding',
-          'Executive Briefings',
-          'BPO Steering Meeting',
-          'Leadership Update Email'
+          'End to End Workshop',
+          'Departmental Engagements (Directly Impacted)'
         ]
       },
       {
         month: 'June 2026',
-        activities: ['Vendor Update Email', 'SAP Day 1']
+        activities: ['Vendor Update Email']
       },
       {
         month: 'August 2026',
@@ -360,11 +353,6 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
       }
     ],
     []
-  );
-
-  const totalPlannedActivities = React.useMemo(
-    () => upcomingActivities.reduce((total, group) => total + group.activities.length, 0),
-    [upcomingActivities]
   );
 
   const businesses = [
@@ -566,10 +554,31 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
     [milestones, today]
   );
 
-  // const totalPlannedActivities = React.useMemo(
-  //   () => upcomingActivities.reduce((total, group) => total + group.activities.length, 0),
-  //   [upcomingActivities]
-  // );
+  const isMonthInPast = React.useCallback((monthString: string): boolean => {
+    try {
+      const [monthName, year] = monthString.split(' ');
+      const monthIndex = new Date(`${monthName} 1, ${year}`).getMonth();
+      const yearNum = parseInt(year, 10);
+
+      // Create a date for the last day of the month
+      const lastDayOfMonth = new Date(yearNum, monthIndex + 1, 0);
+
+      // If the last day of the month is before today, the month is in the past
+      return lastDayOfMonth < today;
+    } catch {
+      return false;
+    }
+  }, [today]);
+
+  const upcomingActivitiesFiltered = React.useMemo(
+    () => upcomingActivities.filter((group) => !isMonthInPast(group.month)),
+    [upcomingActivities, isMonthInPast]
+  );
+
+  const totalPlannedActivities = React.useMemo(
+    () => upcomingActivitiesFiltered.reduce((total, group) => total + group.activities.length, 0),
+    [upcomingActivitiesFiltered]
+  );
 
   const scrollToSection = (sectionId: string): void => {
     sectionRefs[sectionId]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -642,37 +651,37 @@ const ProgrammeOverview: React.FC<IProgrammeOverviewProps> = ({ onBack }) => {
     return () => observer.disconnect();
   }, [sectionRefs]);
 
-const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.ReactNode => (
-  <button
-    type="button"
-    className={styles.overviewGalleryCard}
-    onClick={() => openGallery(item)}
-    aria-label={`Open ${item.title} in full screen`}
-  >
-    <img
-      src={item.imageUrl}
-      alt={item.alt}
-      className={styles.overviewGalleryImage}
-    />
+  const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.ReactNode => (
+    <button
+      type="button"
+      className={styles.overviewGalleryCard}
+      onClick={() => openGallery(item)}
+      aria-label={`Open ${item.title} in full screen`}
+    >
+      <img
+        src={item.imageUrl}
+        alt={item.alt}
+        className={styles.overviewGalleryImage}
+      />
 
-    <div className={styles.overviewGalleryShade} />
+      <div className={styles.overviewGalleryShade} />
 
-    <div className={styles.overviewGalleryTop}>
-      <span className={styles.overviewGalleryExpand}>
-        <span className={styles.overviewGalleryExpandIcon} aria-hidden="true">
-          ⤢
+      <div className={styles.overviewGalleryTop}>
+        <span className={styles.overviewGalleryExpand}>
+          <span className={styles.overviewGalleryExpandIcon} aria-hidden="true">
+            ⤢
+          </span>
+          FULL SCREEN
         </span>
-        FULL SCREEN
-      </span>
-    </div>
+      </div>
 
-    <div className={styles.overviewGalleryCaption}>
-      <span className={styles.overviewGalleryLabel}>{label}</span>
-      {/* <strong className={styles.overviewGalleryTitle}>{item.title}</strong> */}
-      <span className={styles.overviewGalleryHint}>Click to expand</span>
-    </div>
-  </button>
-);
+      <div className={styles.overviewGalleryCaption}>
+        <span className={styles.overviewGalleryLabel}>{label}</span>
+        {/* <strong className={styles.overviewGalleryTitle}>{item.title}</strong> */}
+        <span className={styles.overviewGalleryHint}>Click to expand</span>
+      </div>
+    </button>
+  );
 
 
 
@@ -779,10 +788,13 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
           {/* <span className={styles.overviewPhasePill}>{currentRoadmapPhase.label}</span> */}
           <div className={styles.overviewBigValue}>{currentRoadmapPhase.label}</div>
           <p className={styles.overviewLeadText}>
-            The programme is currently in {currentRoadmapPhase.label.toLowerCase()} and is working towards{' '}
+            The programme is currently in the {currentRoadmapPhase.label.toLowerCase()} and is progressing towards{' '}
             {nextRoadmapPhase ? `${nextRoadmapPhase.label} as the next major phase transition.` : 'the final delivery transition.'}
           </p>
           <br></br>
+                    <br></br>
+          <br></br>
+
           <div className={styles.overviewDivider} />
           <span className={styles.overviewMetaLabel}>Next key date</span>
           <strong className={styles.overviewMetaValue}>{nextMilestone.date}</strong>
@@ -794,116 +806,44 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
       </section>
 
       <section className={styles.scopeSection} ref={scopeRef}>
-        <div className={styles.scopeGrid}>
-          <div className={styles.scopeCard}>
-            <div className={styles.sectionEyebrow}>Vision and objectives</div>
-            <h2 className={styles.sectionTitle}>Why This Matters</h2>
-            <p className={styles.sectionIntro}>
-              Seplat currently operates across multiple legacy platforms, including SAP ECC, Infor Sun Systems
-              Cloud, and Enterprise Asset Management. This has contributed to fragmented technology, inconsistent
-              processes, limited automation, and duplicated data across parts of the organisation.
-            </p>
-            <p className={styles.scopeBody}>
-              Project Elevate is designed to address these challenges by creating a single digital core across the
-              businesses in scope. The expected outcome is a more unified environment with standard processes,
-              more system driven execution, improved operational efficiency, and lower support complexity over time.
-            </p>
-            <div className={styles.businessesWrap}>
-              <div className={styles.scopeMetaLabel}>Businesses in scope</div>
-              <div className={styles.businessTags}>
-                {businesses.map((business, index) => (
-                  <span key={index} className={styles.businessTag}>{business}</span>
-                ))}
-              </div>
+        <div className={styles.scopeCard}>
+          <div className={styles.sectionEyebrow}>Vision and objectives</div>
+          <h2 className={styles.sectionTitle}>Why This Matters</h2>
+          <p className={styles.sectionIntro}>
+            Seplat currently operates across multiple legacy platforms, including SAP ECC, Infor Sun Systems
+            Cloud, and Enterprise Asset Management. This has contributed to fragmented technology, inconsistent
+            processes, limited automation, and duplicated data across parts of the organisation.
+          </p>
+          <p className={styles.scopeBody}>
+            Project Elevate is designed to address these challenges by creating a single digital core across the
+            businesses in scope. The expected outcome is a more unified environment with standard processes,
+            more system driven execution, improved operational efficiency, and lower support complexity over time.
+          </p>
+          <div className={styles.businessesWrap}>
+            <div className={styles.scopeMetaLabel}>Businesses in scope</div>
+            <div className={styles.businessTags}>
+              {businesses.map((business, index) => (
+                <span key={index} className={styles.businessTag}>{business}</span>
+              ))}
             </div>
-          </div>
-
-          <div className={styles.coverageCard}>
-            <div className={styles.sectionEyebrow}>Programme structure</div>
-            <div className={styles.coverageHeader}>
-              <h2 className={styles.sectionTitle}>Programme Governance</h2>
-              <p className={styles.coverageIntro}>Click a role to see what it covers in the programme.</p>
-            </div>
-
-            {activeGovNode === null ? (
-              /* ── Grid view ── */
-              <div className={styles.govGrid}>
-                {governanceNodes.map((node) => (
-                  <button
-                    key={node.key}
-                    type="button"
-                    className={[styles.govNode, styles[`govNode_${node.color}`]].join(' ')}
-                    onClick={() => setActiveGovNode(node.key)}
-                  >
-                    <div className={styles.govNodeRole}>{node.role}</div>
-                    <div className={styles.govNodeTitle}>{node.title}</div>
-                  </button>
-                ))}
-              </div>
-            ) : (
-              /* ── Master-detail view ── */
-              <div className={styles.govDetail}>
-                <div className={styles.govDetailSidebar}>
-                  {governanceNodes.map((node) => {
-                    const isActive = activeGovNode === node.key;
-                    return (
-                      <button
-                        key={node.key}
-                        type="button"
-                        className={[
-                          styles.govSidebarBtn,
-                          styles[`govSidebarBtn_${node.color}`],
-                          isActive ? styles.govSidebarBtnActive : ''
-                        ].filter(Boolean).join(' ')}
-                        onClick={() => setActiveGovNode(node.key)}
-                      >
-                        <span className={styles.govSidebarBtnAccent} />
-                        <span className={styles.govSidebarBtnLabel}>{node.title}</span>
-                        {isActive && (
-                          <span className={styles.govSidebarBtnArrow} aria-hidden="true">›</span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className={styles.govDetailPanel}>
-                  {(() => {
-                    const node = governanceNodes.find((n) => n.key === activeGovNode)!;
-                    return (
-                      <>
-                        <div className={styles.govDetailPanelTop}>
-                          <div>
-                            <span className={styles.govDetailEyebrow}>{node.role}</span>
-                            <h3 className={styles.govDetailTitle}>{node.title}</h3>
-                          </div>
-                          <button
-                            type="button"
-                            className={styles.govDetailClose}
-                            onClick={() => setActiveGovNode(null)}
-                            aria-label="Close and return to grid"
-                          >
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-                            </svg>
-                          </button>
-                        </div>
-                        <div className={styles.govDetailDivider} />
-                        <p className={styles.govDetailText}>{node.detail}</p>
-                        <p className={styles.govDetailPlaceholder}>
-                          Additional content for this governance area will be added here.
-                        </p>
-                      </>
-                    );
-                  })()}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
 
+      <section className={styles.governanceSection} ref={governanceRef}>
+        <div className={styles.coverageCard}>
+          <div className={styles.sectionEyebrow}>Programme structure</div>
+          <div className={styles.coverageHeader}>
+            <h2 className={styles.sectionTitle}>Programme Governance</h2>
+          </div>
+          <div className={styles.governanceImageContainer}>
+            <img src={governanceImage} alt="Programme Governance Structure" className={styles.governanceImage} />
+          </div>
+        </div>
+      </section>
 
+      <br></br>
+      <br></br>
       <section className={styles.phasesSection} ref={phasesRef}>
         <div className={styles.sectionEyebrow}>SAP Activate methodology</div>
         <h2 className={styles.sectionTitle}>Programme Phases</h2>
@@ -1019,7 +959,8 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
           </div>
         </div>
       </section>
-
+      <br></br>
+      <br></br>
       <section className={styles.milestonesSection} ref={milestonesRef}>
         <div className={styles.sectionEyebrow}>Delivery timeline</div>
         <h2 className={styles.sectionTitle}>Key Milestones</h2>
@@ -1067,9 +1008,8 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
           </table>
         </div>
       </section>
-
-
-
+      <br></br>
+      <br></br>
       <section className={styles.peopleSection} ref={peopleRef}>
         <div className={styles.peopleIntro}>
           <div>
@@ -1086,7 +1026,8 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
         <div className={styles.stakeholderMapFull}>
           {renderGalleryCard(stakeholderMapGalleryItem, 'Stakeholder map')}
         </div>
-
+        <br></br>
+        <br></br>
         <div className={styles.activitiesCard}>
           <div className={styles.activitiesCardHead}>
             <div>
@@ -1097,7 +1038,7 @@ const renderGalleryCard = (item: IOverviewGalleryItem, label: string): React.Rea
           </div>
 
           <div className={styles.activityMonthGroups}>
-            {upcomingActivities.map((group) => (
+            {upcomingActivitiesFiltered.map((group) => (
               <div key={group.month} className={styles.activityMonthGroup}>
                 <div className={styles.activityMonthTop}>
                   <div className={styles.activityMonthHeader}>{group.month}</div>
